@@ -29,7 +29,9 @@ jobs:
           pip install databricks
 
       - name: Run Tests
-        run: |
+        env: 
+          PYTHONPATH: .
+        run:
           pytest
 
       - name: Configure Databricks CLI
