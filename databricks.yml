@@ -1,0 +1,22 @@
+bundle:
+  name: sample-project
+
+targets:
+  dev:
+    workspace:
+      host: https://adb-xxxxxxxx.azuredatabricks.net
+
+resources:
+  jobs:
+    sample_job:
+      name: Sample Python Job
+
+      tasks:
+        - task_key: hello_task
+          spark_python_task:
+            python_file: ./src/main.py
+
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: Standard_DS3_v2
+            num_workers: 1
