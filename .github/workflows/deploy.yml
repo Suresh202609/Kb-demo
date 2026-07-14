@@ -33,6 +33,9 @@ jobs:
         run:
           pytest
 
+      - name: Install Databricks CLI
+        uses: databricks/setup-cli@main
+        
       - name: Configure Databricks CLI
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
